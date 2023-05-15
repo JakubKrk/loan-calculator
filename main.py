@@ -62,8 +62,6 @@ loans.append(ln.fixed_loan(LOAN_AMOUNT, INTEREST2, PERIOD_M, excess_2000_after_1
 loans.append(ln.fixed_loan(LOAN_AMOUNT, INTERESTWINOR, PERIOD_M, excess_0, SHORTER_LOAN))
 loans.append(ln.fixed_loan(LOAN_AMOUNT, INTERESTWINOR, PERIOD_M, excess_1500, SHORTER_LOAN))
 
-print(loans[0].df[110:130])
-
 for idx, loan in enumerate(loans):
     cmap = matplotlib.colors.LinearSegmentedColormap.from_list("", ["red","green","blue"], N=len(loans))
     plotLoan(loan, ax, cmap(idx))

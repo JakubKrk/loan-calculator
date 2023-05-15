@@ -10,7 +10,7 @@ class loan:
         self.lower_rate = lower_rate
         self.df = pd.DataFrame({'Debt left': [], 'Debt paid': [], 'Capital_part': [], 'Interest_part': [],
                         'Installment': [], 'Excess':[], 'Tot. Payment': [], 'Cost':[], 'Tot. Interest':[]})
-        self.df = self.df.append([[] for _ in range(self.period)], ignore_index=True)
+        self.df = self.df._append([[] for _ in range(self.period)], ignore_index=True)
         self.df['Debt left'][0] = self.amount
 
         self.calc_loan()
@@ -66,11 +66,3 @@ class decreasing_loan(loan):
     def calc_installment(self, n):
         installment = (self.amount/self.period) * (1+(self.period-n+1)*(self.interest/12))
         return round(installment, 2)
-
-    def calc_loan(self):
-        print(self.calc_installment(1))
-        # for n in range(self.period):
-        #     if (self.calc_row(n)) : break
-
-        # self.df.index = np.arange(1, len(self.df)+1)
-        # self.df = self.df.round(2)
